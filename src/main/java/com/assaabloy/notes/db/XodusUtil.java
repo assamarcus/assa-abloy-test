@@ -1,13 +1,15 @@
 package com.assaabloy.notes.db;
 
-import jetbrains.exodus.entitystore.*;
-
-import javax.validation.constraints.NotNull;
+import jetbrains.exodus.entitystore.PersistentEntityStore;
+import jetbrains.exodus.entitystore.PersistentEntityStores;
 
 public class XodusUtil {
 
-    private final String databaseFolder = "/Users/marcusleander/.myXodusAppData";
-    private final PersistentEntityStore entityStore = PersistentEntityStores.newInstance(databaseFolder);
+    private final PersistentEntityStore entityStore;
+
+    public XodusUtil(String databaseFolder) {
+        entityStore = PersistentEntityStores.newInstance(databaseFolder);
+    }
 
     public int createUser(String userName) {
 

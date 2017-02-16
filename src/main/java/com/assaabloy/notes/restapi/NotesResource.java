@@ -1,9 +1,9 @@
 package com.assaabloy.notes.restapi;
 
-import com.assaabloy.notes.domain.Note;
-import com.assaabloy.notes.domain.NotesList;
 import com.assaabloy.notes.repository.NotesRepository;
-import io.dropwizard.jersey.params.IntParam;
+import com.assaabloy.notes.representations.Note;
+import com.assaabloy.notes.representations.NotesList;
+import io.dropwizard.jersey.params.LongParam;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -26,20 +26,21 @@ public class NotesResource {
     }
 
     @GET
-    public NotesList findAllNotesForUser(@PathParam("user") IntParam userId) {
-        final List<Note> notes = notesRepository.findAllNotesForUser(userId.get());
+    public NotesList findAllNotesForUser(@PathParam("user") LongParam userId) {
+        final List<Note> notes = notesRepository.findAllNotesForUser(userId.get().longValue()).getNotes();
         if (notes != null) {
             return new NotesList(userId, notes);
         }
-        else {
+        else { /* TODO: exceptions maybe thrown above if user does not exist, will result in 500,
+         no notes will result in 404 */
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
     }
 
     @POST
-    public Response addNoteToUser(@PathParam("user") IntParam userId,
+    public Response addNoteToUser(@PathParam("user") LongParam userId,
                         @NotNull @Valid Note note) {
-        final long id = notesRepository.add(userId.get(), note);
+        final long id = notesRepository.addNote(userId.get().longValue(), note);
         return Response.created(UriBuilder.fromResource(NotesResource.class)
                 .build(userId.get(), id))
                 .build();
