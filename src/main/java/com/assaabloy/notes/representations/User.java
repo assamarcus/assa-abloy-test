@@ -2,7 +2,6 @@ package com.assaabloy.notes.representations;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.jersey.params.LongParam;
-import io.dropwizard.jersey.params.LongParam;
 
 public class User {
 

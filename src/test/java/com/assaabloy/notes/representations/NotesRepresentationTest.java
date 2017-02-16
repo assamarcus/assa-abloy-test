@@ -1,15 +1,5 @@
 package com.assaabloy.notes.representations;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.dropwizard.jackson.Jackson;
-import io.dropwizard.jersey.params.LongParam;
-import org.junit.Ignore;
-import org.junit.Test;
-
-import static io.dropwizard.testing.FixtureHelpers.fixture;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-
 public class NotesRepresentationTest {
 
     /*

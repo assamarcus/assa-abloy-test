@@ -4,7 +4,6 @@ import com.assaabloy.notes.representations.User;
 import io.dropwizard.jersey.params.LongParam;
 
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class UserRepository {
