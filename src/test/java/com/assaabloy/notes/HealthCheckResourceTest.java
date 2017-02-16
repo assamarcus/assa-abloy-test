@@ -1,5 +1,6 @@
 package com.assaabloy.notes;
 
+import com.assaabloy.notes.restapi.HealthCheckResource;
 import io.dropwizard.testing.junit.DropwizardClientRule;
 import org.junit.ClassRule;
 import org.junit.Ignore;

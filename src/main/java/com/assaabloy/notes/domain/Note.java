@@ -1,4 +1,4 @@
-package com.assaabloy.notes;
+package com.assaabloy.notes.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

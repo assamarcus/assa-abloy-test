@@ -75,6 +75,17 @@
 			<version>1.0.6</version>
 		</dependency>
 
+        <dependency>
+            <groupId>org.jetbrains.xodus</groupId>
+            <artifactId>xodus-openAPI</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.xodus</groupId>
+            <artifactId>xodus-entity-store</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+
         <!-- test deps -->
         <dependency>
             <groupId>junit</groupId>

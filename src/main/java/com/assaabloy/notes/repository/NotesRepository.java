@@ -1,19 +1,19 @@
 package com.assaabloy.notes.repository;
 
-import com.assaabloy.notes.Note;
+import com.assaabloy.notes.domain.Note;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NotesRepository {
 
-    public List<Note> findAllNotesForUser(long userId) {
+    public List<Note> findAllNotesForUser(int userId) {
         //TODO: implement
         return new ArrayList();
     }
 
-    public long add(Long aLong, Note note) {
+    public int add(int userI, Note note) {
         //TODO: implement
-        return 1L;
+        return 1;
     }
 }

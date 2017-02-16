@@ -1,10 +1,9 @@
 package com.assaabloy.notes.restapi;
 
-import com.assaabloy.notes.Note;
-import com.assaabloy.notes.Stupid;
+import com.assaabloy.notes.domain.Note;
 import com.assaabloy.notes.domain.NotesList;
 import com.assaabloy.notes.repository.NotesRepository;
-import io.dropwizard.jersey.params.LongParam;
+import io.dropwizard.jersey.params.IntParam;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -27,7 +26,7 @@ public class NotesResource {
     }
 
     @GET
-    public NotesList findAllNotesForUser(@PathParam("user") LongParam userId) {
+    public NotesList findAllNotesForUser(@PathParam("user") IntParam userId) {
         final List<Note> notes = notesRepository.findAllNotesForUser(userId.get());
         if (notes != null) {
             return new NotesList(userId, notes);
@@ -38,7 +37,7 @@ public class NotesResource {
     }
 
     @POST
-    public Response add(@PathParam("user") LongParam userId,
+    public Response addNoteToUser(@PathParam("user") IntParam userId,
                         @NotNull @Valid Note note) {
         final long id = notesRepository.add(userId.get(), note);
         return Response.created(UriBuilder.fromResource(NotesResource.class)

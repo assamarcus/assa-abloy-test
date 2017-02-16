@@ -1,4 +1,4 @@
-package com.assaabloy.notes;
+package com.assaabloy.notes.restapi;
 
 import com.codahale.metrics.health.HealthCheck;
 

@@ -1,12 +1,14 @@
 package com.assaabloy.notes;
 
+import com.assaabloy.notes.domain.Note;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.dropwizard.jackson.Jackson;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import static io.dropwizard.testing.FixtureHelpers.fixture;
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 public class NoteRepresentationTest {
 
@@ -15,20 +17,20 @@ public class NoteRepresentationTest {
     @Test
     public void ANoteShouldSerializeToJSON() throws Exception {
 
-        final Note note = new Note("1", "todo", "wash");
+        final Note note = new Note("1", "1", "todo", "wash");
 
         final String result = MAPPER.writeValueAsString(
                 MAPPER.readValue(fixture("fixtures/note.json"), Note.class));
 
-        assertThat(MAPPER.writeValueAsString(note)).isEqualTo(result);
+        assertThat(MAPPER.writeValueAsString(note), is(result));
     }
 
     @Test
-    @Ignore
+    @Ignore //TODO: fixme
     public void ANoteShouldDeSerializeFromJSON() throws Exception {
 
-        final Note note = new Note("1", "todo", "wash");
+        final Note note = new Note("1", "1", "todo", "wash");
 
-        assertThat(MAPPER.readValue(fixture("fixtures/note.json"), Note.class)).isEqualTo(note);
+        assertThat(MAPPER.readValue(fixture("fixtures/note.json"), Note.class), is(note));
     }
 }

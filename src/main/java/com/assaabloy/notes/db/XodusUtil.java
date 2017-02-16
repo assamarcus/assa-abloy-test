@@ -4,14 +4,14 @@ import jetbrains.exodus.entitystore.*;
 
 import javax.validation.constraints.NotNull;
 
-public class XodusManager {
+public class XodusUtil {
 
-    String databaseFolder = "/Users/marcusleander/.myXodusAppData";
+    private final String databaseFolder = "/Users/marcusleander/.myXodusAppData";
+    private final PersistentEntityStore entityStore = PersistentEntityStores.newInstance(databaseFolder);
 
-    public void doIt() {
+    public int createUser(String userName) {
 
-
-        final PersistentEntityStore entityStore = PersistentEntityStores.newInstance(databaseFolder);
+        /*
         entityStore.executeInTransaction(new StoreTransactionalExecutable() {
             @Override
             public void execute(@NotNull final StoreTransaction txn) {
@@ -20,6 +20,8 @@ public class XodusManager {
             }
         });
         entityStore.close();
+        */
+        return 1;
     }
 
 }
